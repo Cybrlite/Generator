@@ -1,12 +1,14 @@
 <head>
     <style>
+      @font-face {font-family: altertype; src: url(https://github.com/star-scope/portfolio-2023/blob/gatsby-to-next/static/fonts/altertype-Regular.otf);}
       body {background-color: #111111; overflow: hidden; margin: 0; padding: 0;}
-      .list {position: absolute; display: flex; flex-direction: column; padding-top: 254px;}
-      .listElement {display: flex; padding-left: 50px; align-items: center; background-color: #222222; border-top: 1px solid #ffffff20; height: 100px; width: 1000px; box-sizing: border-box; color: #ffffff}
+      .list {position: absolute; bottom: 0; display: flex; flex-direction: column;}
+      .listElement {display: flex; padding-left: 50px; align-items: center; background-color: #222222; border-top: 1px solid #ffffff20; height: 100px; width: 1000px; box-sizing: border-box; color: #ffffff; font-size: 20px; transition: .2s; font-family: altertype;}
+      .listElement:hover {background-color: #282828; padding-left: 55px; transition: .2s;}
     </style>
 </head>
 <body>
-    <padding></padding>
+    <p style="padding: 20px; font-size: 35px; color: #ffffff; font-family: altertype;">Generator</p>
     <div class="list">
       <div id="name" class="listElement"><p class="listTitle">name</p></div>
       <div id="email" class="listElement"><p class="listTitle">email address</p></div>
