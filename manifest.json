@@ -8,7 +8,14 @@
   "editorType": [
     "figma"
   ],
-  "ui": "ui.html",
+  "ui": {
+    "main": "main.html",
+    "name": "name.html",
+    "email": "email.html",
+    "phone": "phone.html",
+    "physical": "physical.html",
+    "lorem": "lorem.html"
+  },
   "networkAccess": {
     "allowedDomains": [
       "none"

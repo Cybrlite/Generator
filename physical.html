@@ -1,0 +1,14 @@
+<p>Physical Address</p>
+<button id="main">Main</button>
+<button id="close">Close</button>
+<script>
+    
+    document.getElementById('main').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'main' } }, '*')
+    }
+
+    document.getElementById('close').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'close' } }, '*')
+    }
+
+</script>

@@ -1,0 +1,40 @@
+<head>
+    <style>
+      body {background-color: #111111; overflow: hidden; margin: 0; padding: 0;}
+      .list {position: absolute; display: flex; flex-direction: column; padding-top: 254px;}
+      .listElement {display: flex; padding-left: 50px; align-items: center; background-color: #222222; border-top: 1px solid #ffffff20; height: 100px; width: 1000px; box-sizing: border-box; color: #ffffff}
+    </style>
+</head>
+<body>
+    <padding></padding>
+    <div class="list">
+      <div id="name" class="listElement"><p class="listTitle">name</p></div>
+      <div id="email" class="listElement"><p class="listTitle">email address</p></div>
+      <div id="phone" class="listElement"><p class="listTitle">phone number</p></div>
+      <div id="physical" class="listElement"><p class="listTitle">physical address</p></div>
+      <div id="lorem" class="listElement"><p class="listTitle">lorem ipsum</p></div>
+    </div>
+</body>
+<script>
+
+    document.getElementById('name').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'name' } }, '*')
+    }
+    
+    document.getElementById('email').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'email' } }, '*')
+    }
+
+    document.getElementById('phone').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'phone' } }, '*')
+    }
+
+    document.getElementById('physical').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'physical' } }, '*')
+    }
+
+    document.getElementById('lorem').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'lorem' } }, '*')
+    }
+    
+</script>
