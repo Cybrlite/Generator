@@ -6,13 +6,23 @@
       .list {position: absolute; bottom: 0; display: flex; flex-direction: column;}
       .listElement {display: flex; padding-left: 50px; align-items: center; background-color: #222; border-top: 1px solid #ffffff20; height: 100px; width: 1000px; box-sizing: border-box; color: #fff; font-size: 20px; transition: .2s; font-family: altertype;}
       .listElement:hover {background-color: #282828; padding-left: 55px; transition: .2s;}
+      .buttonWrapper {display: flex; flex-direction: row; gap: 20px;}
+      .button p {padding: 13 30 13 30; max-height: 50px; display: flex; align-items: center; justify-content: center; background-color: #111111; border: 1px solid #ffffff20; transition: .2s; cursor: pointer; font-family: altertype; color: #fff; font-size: 20px;}
+      .button:hover p {background-color: #44444450; transition: .2s;}
+      .button input {display: none;}
+      .button input[name="a"]:checked + p {background-color: #444444; transition: .2s;}
+      .button input[name="b"]:checked + p {background-color: #444444; transition: .2s;}
+      .generate {padding: 0 50 0 50; max-height: 50px; display: flex; align-items: center; justify-content: center; background-color: #111111; border: 1px solid #ffffff20; transition: .2s; cursor: pointer; font-family: altertype; color: #fff; font-size: 20px; position: absolute; margin-left: 398px; bottom: 0; margin-bottom: 50px;}
+      .generate:hover {background-color: #44444450; transition: .2s;}
+      .nameSelected {padding: 20 0 0 50; align-items: center; background-color: #222; border-top: 1px solid #ffffff20; height: 660px; width: 1000px; box-sizing: border-box; color: #fff; font-size: 20px; transition: .2s; font-family: altertype;}
+      .hidden {display: none}
     </style>
 </head>
 <body>
-    <div class="header">
-      <p style="font-size: 35px; color: #fff; font-family: altertype;">Generator</p>
+    <div id="main" class="header">
+      <p style="font-size: 35px; color: #fff; font-family: altertype;">generator</p>
     </div>
-    <div class="list">
+    <div id="list" class="list">
       <div id="name" class="listElement"><p class="listTitle">name</p></div>
       <div id="email" class="listElement"><p class="listTitle">email address</p></div>
       <div id="phone" class="listElement"><p class="listTitle">phone number</p></div>
@@ -22,9 +32,49 @@
 </body>
 <script>
 
-    document.getElementById('name').onclick = () => {
-      parent.postMessage({ pluginMessage: { type: 'name' } }, '*')
+    function nameHandler(event) {
+        let element = document.getElementById("name");
+        let newElement = '<div class="buttonWrapper"><label class="button"><input type="radio" name="a"><p>full</p></input></label><label class="button"><input type="radio" name="a"><p>first</p></input></label><label class="button"><input type="radio" name="a"><p>last</p></input></label></div><div class="buttonWrapper"><label class="button"><input type="radio" name="b"><p>male</p></input></label><label class="button"><input type="radio" name="b"><p>female</p></input></label><label class="button"><input type="radio" name="b"><p>either</p></input></label></div>';
+        //const newElement = '<p>TEST</p>';
+        element.classList.remove('listElement');
+        element.classList.add('nameSelected');
+        element.insertAdjacentHTML( 'beforeend', newElement )
+
+        element = document.getElementById("list");
+        newElement = '<label class="generate"><p>generate</p></label>'
+        element.insertAdjacentHTML( 'beforeend', newElement )
+        //document.getElementById("list").classList.add("hidden");
+        //document.getElementById("name").classList.add("hidden");
+        document.getElementById("email").classList.add("hidden");
+        document.getElementById("phone").classList.add("hidden");
+        document.getElementById("physical").classList.add("hidden");
+        document.getElementById("lorem").classList.add("hidden");
+
+        document.removeEventListener('click', nameHandler);
+        //parent.postMessage({ pluginMessage: { type: 'name' } }, '*')
     }
+
+    document.addEventListener('click', nameHandler);
+
+    /*document.getElementById('name').onclick = () => {
+        let element = document.getElementById("name");
+        let newElement = '<div class="buttonWrapper"><label class="button"><input type="radio" name="a"><p>full</p></input></label><label class="button"><input type="radio" name="a"><p>first</p></input></label><label class="button"><input type="radio" name="a"><p>last</p></input></label></div><div class="buttonWrapper"><label class="button"><input type="radio" name="b"><p>male</p></input></label><label class="button"><input type="radio" name="b"><p>female</p></input></label><label class="button"><input type="radio" name="b"><p>either</p></input></label></div>';
+        //const newElement = '<p>TEST</p>';
+        element.classList.remove('listElement');
+        element.classList.add('nameSelected');
+        element.insertAdjacentHTML( 'beforeend', newElement )
+
+        element = document.getElementById("list");
+        newElement = '<label class="generate"><p>generate</p></label>'
+        element.insertAdjacentHTML( 'beforeend', newElement )
+        //document.getElementById("list").classList.add("hidden");
+        //document.getElementById("name").classList.add("hidden");
+        document.getElementById("email").classList.add("hidden");
+        document.getElementById("phone").classList.add("hidden");
+        document.getElementById("physical").classList.add("hidden");
+        document.getElementById("lorem").classList.add("hidden");
+      //parent.postMessage({ pluginMessage: { type: 'name' } }, '*')
+    }*/
     
     document.getElementById('email').onclick = () => {
       parent.postMessage({ pluginMessage: { type: 'email' } }, '*')
@@ -40,6 +90,10 @@
 
     document.getElementById('lorem').onclick = () => {
       parent.postMessage({ pluginMessage: { type: 'lorem' } }, '*')
+    }
+
+    document.getElementById('main').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'main' } }, '*')
     }
     
 </script>

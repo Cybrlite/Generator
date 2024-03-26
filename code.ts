@@ -13,9 +13,9 @@ figma.showUI(__uiFiles__.main, {width: 1000, height: 750,});
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
 figma.ui.onmessage =  (msg: {type: string}) => {
-  if (msg.type === 'name') {
+  /*if (msg.type === 'name') {
     figma.showUI(__uiFiles__.name, {width: 1000, height: 750,});
-  }
+  }*/
   if (msg.type === 'email') {
     figma.showUI(__uiFiles__.email, {width: 1000, height: 750,});
   }
