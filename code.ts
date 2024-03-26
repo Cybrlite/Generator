@@ -31,6 +31,15 @@ figma.ui.onmessage =  (msg: {type: string}) => {
   if (msg.type === 'main') {
     figma.showUI(__uiFiles__.main, {width: 1000, height: 750,});
   }
+  if (msg.type === 'full') {
+    figma.showUI(__uiFiles__.main, {width: 1000, height: 750,});
+  }
+  if (msg.type === 'first') {
+    figma.showUI(__uiFiles__.main, {width: 1000, height: 750,});
+  }
+  if (msg.type === 'last') {
+    figma.showUI(__uiFiles__.main, {width: 1000, height: 750,});
+  }
   if (msg.type === 'close') {
     figma.closePlugin();
   }

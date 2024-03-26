@@ -1,15 +1,22 @@
 <head>
     <style>
-      @font-face {font-family: altertype; src: url(https://github.com/star-scope/portfolio-2023/blob/gatsby-to-next/static/fonts/altertype-Regular.otf);}
       body {background-color: #111111; overflow: hidden; margin: 0; padding: 0;}
-      .list {position: absolute; bottom: 0; display: flex; flex-direction: column;}
+      @font-face {font-family: altertype; src: url(https://github.com/star-scope/portfolio-2023/blob/gatsby-to-next/static/fonts/altertype-Regular.otf);}
+      .header {height: 90px; display: flex; padding: 0px 20px 0px 20px; align-items: center;}
+      #list {position: absolute; bottom: 0; display: flex; flex-direction: column;}
       .listElement {display: flex; padding-left: 50px; align-items: center; background-color: #222222; border-top: 1px solid #ffffff20; height: 100px; width: 1000px; box-sizing: border-box; color: #ffffff; font-size: 20px; transition: .2s; font-family: altertype;}
       .listElement:hover {background-color: #282828; padding-left: 55px; transition: .2s;}
+      .nameSelected {position:absolute; bottom: 0; display: flex; padding-left: 50px; align-items: center; background-color: #222222; border-top: 1px solid #ffffff20; height: 660px; width: 1000px; box-sizing: border-box; color: #ffffff; font-size: 20px; transition: .4s; font-family: altertype;}
+      .buttonList {position: absolute; bottom: 600px; display: flex; flex-direction: row; transition: .2s;}
+      .buttonElement {display: flex; padding-left: 50px; align-items: center; background-color: #222222; border-top: 1px solid #ffffff20; height: 50px; width: 100px; box-sizing: border-box; color: #ffffff; font-size: 20px; transition: .2s; font-family: altertype;}
+      .hidden {display: none}
     </style>
 </head>
 <body>
-    <p style="padding: 20px; font-size: 35px; color: #ffffff; font-family: altertype;">Generator</p>
-    <div class="list">
+    <div id="main" class="header">
+      <p style="font-size: 35px; color: #fff; font-family: altertype;">Generator</p>
+    </div>
+    <div id="list">
       <div id="name" class="listElement"><p class="listTitle">name</p></div>
       <div id="email" class="listElement"><p class="listTitle">email address</p></div>
       <div id="phone" class="listElement"><p class="listTitle">phone number</p></div>
@@ -19,8 +26,24 @@
 </body>
 <script>
 
+    document.getElementById('main').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'main' } }, '*')
+    }
     document.getElementById('name').onclick = () => {
-      parent.postMessage({ pluginMessage: { type: 'name' } }, '*')
+        const element = document.getElementById("name");
+        const newElement = '<p style="color: #ffffff;"">name</p> <div class="buttonList"><div id="full" class="buttonElement"><p class="buttonTitle">full</p></div> <div id="first" class="buttonElement"><p class="buttonTitle">first</p></div> <div id="last" class="buttonElement"><p class="buttonTitle">last</p></div> </div>';
+        //const newElement = '<p>TEST</p>';
+        element.classList.remove('listElement');
+        element.classList.add('nameSelected');
+        element.insertAdjacentHTML( 'beforebegin', newElement )
+
+        document.getElementById("list").classList.add("hidden");
+        document.getElementById("name").classList.add("hidden");
+        document.getElementById("email").classList.add("hidden");
+        document.getElementById("phone").classList.add("hidden");
+        document.getElementById("physical").classList.add("hidden");
+        document.getElementById("lorem").classList.add("hidden");
+      // parent.postMessage({ pluginMessage: { type: 'name' } }, '*')
     }
     
     document.getElementById('email').onclick = () => {

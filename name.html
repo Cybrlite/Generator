@@ -1,14 +1,24 @@
-<p>Name</p>
-<button id="main">Main</button>
-<button id="close">Close</button>
+<p id="main">generator</p>
+<p>name</p>
+<button id="full">full</button>
+<button id="first">first</button>
+<button id="last">last</button>
 <script>
 
     document.getElementById('main').onclick = () => {
       parent.postMessage({ pluginMessage: { type: 'main' } }, '*')
     }
 
-    document.getElementById('close').onclick = () => {
-      parent.postMessage({ pluginMessage: { type: 'close' } }, '*')
+    document.getElementById('full').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'full' } }, '*')
+    }
+
+    document.getElementById('first').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'first' } }, '*')
+    }
+
+    document.getElementById('last').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'last' } }, '*')
     }
     
 </script>
