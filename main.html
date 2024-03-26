@@ -34,7 +34,18 @@
 
     function nameHandler(event) {
         let element = document.getElementById("name");
-        let newElement = '<div class="buttonWrapper"><label class="button"><input type="radio" name="a"><p>full</p></input></label><label class="button"><input type="radio" name="a"><p>first</p></input></label><label class="button"><input type="radio" name="a"><p>last</p></input></label></div><div class="buttonWrapper"><label class="button"><input type="radio" name="b"><p>male</p></input></label><label class="button"><input type="radio" name="b"><p>female</p></input></label><label class="button"><input type="radio" name="b"><p>either</p></input></label></div>';
+        let newElement = `
+        <div class="buttonWrapper">
+            <label class="button"><input type="radio" name="a" checked><p>full</p></input></label>
+            <label class="button"><input type="radio" name="a"><p>first</p></input></label>
+            <label class="button"><input type="radio" name="a"><p>last</p></input></label>
+        </div>
+        <div class="buttonWrapper">
+            <label class="button"><input type="radio" name="b" checked><p>male</p></input></label>
+            <label class="button"><input type="radio" name="b"><p>female</p></input></label>
+            <label class="button"><input type="radio" name="b"><p>either</p></input></label>
+        </div>
+        `;  
         //const newElement = '<p>TEST</p>';
         element.classList.remove('listElement');
         element.classList.add('nameSelected');

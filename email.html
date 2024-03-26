@@ -1,6 +1,37 @@
-<p>Email Address</p>
-<button id="main">Main</button>
-<button id="close">Close</button>
+<head>
+  <style>
+    body {background-color: #111111; overflow: hidden; margin: 0; padding: 0;}
+    @font-face {font-family: altertype; src: url(https://github.com/star-scope/portfolio-2023/blob/gatsby-to-next/static/fonts/altertype-Regular.otf);}
+    .header {height: 90px; display: flex; padding: 0px 20px 0px 20px; align-items: center;}
+    .list {position: absolute; bottom: 0; display: flex; flex-direction: column;}
+    .listElement {padding: 20 0 0 50; align-items: center; background-color: #222; border-top: 1px solid #ffffff20; height: 660px; width: 1000px; box-sizing: border-box; color: #fff; font-size: 20px; transition: .2s; font-family: altertype;}
+    .buttonWrapper {display: flex; flex-direction: row; gap: 20px;}
+    .button p {padding: 13 30 13 30; max-height: 50px; display: flex; align-items: center; background-color: #111111; border: 1px solid #ffffff20; transition: .2s; cursor: pointer; font-family: altertype; color: #fff; font-size: 20px;}
+    .button:hover p {background-color: #44444450; transition: .2s;}
+    .button input {display: none;}
+    .button input[name="a"]:checked + p {background-color: #444444; transition: .2s;}
+    .button input[name="b"]:checked + p {background-color: #444444; transition: .2s;}
+    .email {margin-top: 20px; width: 330px; padding: 13 30 13 30; max-height: 50px; display: flex; align-items: center; background-color: #AAAAAA; border: 1px solid #ffffff20; cursor: text; font-family: altertype; color: #222; font-size: 20px;}
+    input[type=text]:focus {outline:none;}
+    .generate {padding: 0 50 0 50; height: 50px; display: flex; align-items: center; background-color: #111111; border: 1px solid #ffffff20; transition: .2s; cursor: pointer; font-family: altertype; color: #fff; font-size: 20px; position: absolute; margin-left: 398px; bottom: 0; margin-bottom: 50px;}
+    .generate:hover {background-color: #44444450; transition: .2s;}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <p style="font-size: 35px; color: #fff; font-family: altertype;">Generator</p>
+  </div>
+  <div class="list">
+    <div id="name" class="listElement">
+      <p class="listTitle">name</p>
+      <div class="buttonWrapper">
+        <label class="button"><input type="radio" name="a" checked><p>random</p></input></label>
+        <input class="email" type="text" value="enter custom domain..."></input>
+      </div>
+    </div>
+    <label class="generate"><p>generate</p></label>
+  </div>
+</body>
 <script>
     
     document.getElementById('main').onclick = () => {
